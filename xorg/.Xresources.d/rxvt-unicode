@@ -1,0 +1,14 @@
+URxvt.font:                xft:TerminessTTF Nerd Font Mono:style=Medium:size=12
+URxvt.boldFont:            xft:TerminessTTF Nerd Font Mono:style=Bold:size=12
+URxvt.letterSpace: 	   1
+URxvt.internalBorder:      0
+URxvt.externalBorder:      0
+URxvt.scrollBar:           false
+URxvt*fading:              30
+URxvt.perl-ext-common:     matcher,resize-font
+URxvt.keysym.F11:          perl:fullscreen:switch
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger:  C-Up
+URxvt.url-launcher:        /usr/bin/firefox
+URxvt.keysym.M-Delete:     perl:matcher:list
+URxvt.colorUL: #7780a1

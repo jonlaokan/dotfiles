@@ -1,5 +1,8 @@
 ## Configuration files
 
-I'm currently using Fedora 25.
+This is the home of all my dotfiles.
 
+## Current System
+
+Arch Linux running on a Macbook Pro Late '13.
 

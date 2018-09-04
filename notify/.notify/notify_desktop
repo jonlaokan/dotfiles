@@ -1,0 +1,6 @@
+#! /bin/bash
+
+notify-send -t 800 "$1"
+notify-send -t 800 "$2"
+
+exit 0

@@ -1,0 +1,13 @@
+
+#include ".Xresources.d/rxvt-unicode"
+#include ".Xresources.d/color"
+
+! -----------------------------------------------------------------------------
+! Xft Font Configuration
+! -----------------------------------------------------------------------------
+Xft.dpi:192
+Xft.rgba:rgb
+Xft.antialias:true
+Xft.hinting:false
+Xft.lcdfilter:lcddefault
+
