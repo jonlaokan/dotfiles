@@ -1,5 +1,5 @@
-URxvt.font:                xft:TerminessTTF Nerd Font Mono:style=Medium:size=12
-URxvt.boldFont:            xft:TerminessTTF Nerd Font Mono:style=Bold:size=12
+URxvt.font:                xft:TerminessTTF Nerd Font Mono:style=Medium:size=10
+URxvt.boldFont:            xft:TerminessTTF Nerd Font Mono:style=Bold:size=10
 URxvt.letterSpace: 	   1
 URxvt.internalBorder:      0
 URxvt.externalBorder:      0
