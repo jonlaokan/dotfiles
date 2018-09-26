@@ -16,6 +16,10 @@ super + Escape
 
 # launch firefox
 alt + f
+	firefox
+
+alt + Escape
+	systemctl suspend
 
 #
 # dunst notifications
