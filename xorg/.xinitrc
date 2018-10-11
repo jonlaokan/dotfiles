@@ -7,7 +7,7 @@ xsetroot -cursor_name left_ptr
 
 xrdb ~/.Xresources
 
-xrandr --output eDP-1 --auto --output HDMI-2 --auto --scale 1.5x1.5 --right-of eDP-1
 bluetoothctl power on
+xmon up
 
 exec bspwm
