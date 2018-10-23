@@ -5,9 +5,8 @@ clickable_url = true
 browser = firefox
 allow_bold = true
 scrollback_lines = 1000
-cursor_blink = yes
+cursor_blink = on
 cursor_shape = underline
-
 
 [colors]
 # special
