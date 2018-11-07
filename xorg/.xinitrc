@@ -7,7 +7,8 @@ xsetroot -cursor_name left_ptr
 
 xrdb ~/.Xresources
 
-bluetoothctl power on
 xmon up
 
-exec bspwm
+exec xmonad
+
+

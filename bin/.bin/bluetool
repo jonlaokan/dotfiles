@@ -1,0 +1,10 @@
+#! /bin/bash
+
+if ps ax | grep -v grep | grep -q bluetooth
+then
+    bluetoothctl power on
+else
+    notify-send -t 1000 "Bluetooth service is not running"
+fi
+
+exit 0
