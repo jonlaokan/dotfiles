@@ -1,0 +1,7 @@
+[user]
+	email = oneofdays@gmail.com
+	name = jonlaokan
+[core]
+	editor = nvim
+[log]
+	abbrevCommit = true
