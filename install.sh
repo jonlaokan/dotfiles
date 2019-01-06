@@ -2,7 +2,7 @@
 
 DOTFILES="/home/$(whoami)/.dotfiles/"
 
-if command -v stow >/dev/null 2>&1; then
+if ! command -v stow >/dev/null 2>&1; then
     echo 'Stow is not available, please install it'
     echo 'https://www.gnu.org/software/stow/'
     exit 1

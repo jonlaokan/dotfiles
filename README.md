@@ -1,6 +1,9 @@
 # Dotfiles
 
-Dotfiles are plain text configuration files on Unix-y systems for things like our shell, ~/.bashrc, our editor in ~/.vimrc, and many others. They are called *dotfiles* because they usually start with a `.` which hides them on your system. Since those files are mostly plain-text files, it's really easy to use a git repository to track the changes over time.
+Dotfiles are plain text configuration files on Unix-y systems for things like our shell, ~/.bashrc, our editor in ~/.vimrc, and many others. 
+They are called *dotfiles* because they usually start with a `.` which hides them on your system.
+
+These are my ever evolving configuration files that I might spend too much time on, feel free to use anything that you find here :smirk:.
 
 # Dependencies
 
@@ -10,11 +13,13 @@ Dotfiles are plain text configuration files on Unix-y systems for things like ou
 
  **To install using git :**
  
- `git clone https://github.com/jonlaokan/dotfiles.git ~/.dotfiles`
- `./install.sh`
+ ```
+ git clone https://github.com/jonlaokan/dotfiles.git ~/.dotfiles
+ ./install.sh
+ ```
  
 
-# What do I Use on my systems ?
+# What do I use on my systems ?
 
 * **OS** : [NixOS](https://nixos.org/)
 * **WM** : [Xmonad](https://xmonad.org/)

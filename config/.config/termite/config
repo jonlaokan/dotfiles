@@ -1,5 +1,5 @@
 [options]
-font = IBM Plex Mono Italic 10
+font = M+ 1mn 10
 mouse_autohide = true
 clickable_url = true
 browser = firefox
