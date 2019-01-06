@@ -1,0 +1,39 @@
+# Variables
+blinking=$(printf '\e[01;31m')
+doublebright=$(printf '\e[01;35m')
+end=$(printf '\e[0m')
+standout=$(printf '\e[01;33m')
+underline=$(printf '\e[04;36m')
+
+# X-files
+userResources="$HOME/.Xresources"
+
+# System env variables
+# TermCap
+
+export LESS_TERMCAP_mb=$blinking
+export LESS_TERMCAP_md=$doublebright 
+export LESS_TERMCAP_so=$standout 
+export LESS_TERMCAP_us=$underline
+export LESS_TERMCAP_me=$end 
+export LESS_TERMCAP_se=$end
+export LESS_TERMCAP_ue=$end
+
+# Visual
+
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# X11
+xset r rate 270 30
+
+# X cursor fix
+xsetroot -cursor_name left_ptr
+
+# Xres
+if [ -f "$userResources" ]; then
+    xrdb -merge "$userResources"
+fi
+
+# Custom script
+xmon up

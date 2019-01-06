@@ -1,10 +1,9 @@
-
-#include ".Xresources.d/rxvt-unicode"
-#include ".Xresources.d/color"
+#include "/home/jonlaokan/dots/colors/dracula"
 
 ! -----------------------------------------------------------------------------
 ! Xft Font Configuration
 ! -----------------------------------------------------------------------------
+
 Xft.dpi: 144
 Xft.rgba:rgb
 Xft.antialias:true
