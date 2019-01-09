@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 rofi -sidebar-mode \
 -modi run,drun \
