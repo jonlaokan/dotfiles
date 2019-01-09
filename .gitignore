@@ -2,4 +2,16 @@
 xmonad/*
 !xmonad/.xmonad/xmonad.hs
 
+# Config folder
+config/.config/*
+!config/.config/bspwm
+!config/.config/dunst
+!config/.config/fish/config.fish
+!config/.config/qutebrowser/config.py
+!config/.config/ranger
+!config/.config/nvim/init.vim
+!config/.config/rofi
+!config/.config/sxhkd
+!config/.config/termite
+
 *.log
