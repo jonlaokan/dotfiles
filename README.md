@@ -24,9 +24,10 @@ These are my ever evolving configuration files that I might spend too much time 
 * **OS** : [NixOS](https://nixos.org/)
 * **WM** : [Xmonad](https://xmonad.org/)
 * **Bar** : [Xmobar](https://hackage.haskell.org/package/xmobar)
-* **Gtk theme** : [Ant Dracula](https://github.com/EliverLara/Ant-Dracula)
+* **Gtk theme** : [Equilux](https://github.com/ddnexus/equilux-theme)
+* **Icon theme** : [Papirus-icon-theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/)
 * **Color Theme** ( mainly ) : [Dracula](https://draculatheme.com/terminal/)
-* **Font** : [Tamzen](https://github.com/sunaku/tamzen-font)
+* **Font** : [M+ 1mn](https://en.wikipedia.org/wiki/M%2B_FONTS)
 * **Editor** : [Neovim](https://neovim.io/)
 
 # Current System
