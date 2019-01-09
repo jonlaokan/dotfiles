@@ -1,0 +1,106 @@
+#!/usr/bin/env bash 
+
+if (( $# < 1 )); then
+    echo Usage : "$(basename "$0")" [up][down] >&2
+    exit 1
+fi
+
+current_state=$(xrandr)
+
+check_outputs_names() {
+    primary="$1"
+    external="$2"
+}
+
+resolution=[]
+get_output_res() {
+    local temp
+    temp="$(xrandr | grep "$1" | grep -o -E '[0-9]{4}x[0-9]{4}')"
+    resolution[0]="$(echo "$temp" | cut -d x -f 1)"
+    resolution[1]="$(echo "$temp" | cut -d x -f 2)"
+}
+
+if echo "$current_state" | grep eDP1 > /dev/null; then 
+    check_outputs_names "eDP1" "HDMI2"
+else
+    check_outputs_names "eDP-1" "HDMI-2"
+fi
+
+reset_setup() {
+    local default
+    default=1x1
+    xrandr --output "$primary" --scale "$default" --output "$external" --scale "$default"
+}
+
+compute_scale() {
+    get_output_res "$primary"
+    p_width="${resolution[0]}"
+    p_height="${resolution[1]}"
+
+    get_output_res "$external"
+    e_width="${resolution[0]}"
+    e_height="${resolution[1]}"
+
+    external_scale=$(echo "scale=4; $e_width / $p_width" | bc)x$(echo "scale=4; $e_height / $p_height" | bc)
+}
+
+mirror_mode() {
+    log "mirror"
+    reset_setup
+    compute_scale
+    xrandr --output "$primary" --scale "$external_scale" --output "$external" --same-as "$primary"
+    ~/.fehbg
+}
+
+extend_mode(){
+    log "extend"
+    reset_setup
+    compute_scale
+    xrandr --output "$primary" --auto --scale "$external_scale" --output "$external" --auto --right-of "$primary"
+    ~/.fehbg
+}
+
+switch_on() {
+    xrandr --output "$1" --auto
+    mirror_mode
+}
+
+switch_off() {
+    xrandr --output "$1" --off
+    log "mono-display"
+}
+
+log() {
+    echo $1 > $DISPLAY_SETUP
+}
+
+show_current_setup() {
+    if test -f $DISPLAY_SETUP; then
+	head -1 $DISPLAY_SETUP
+    fi
+}
+
+
+case $1 in
+    mirror)
+	mirror_mode
+	;;
+    extend)
+	extend_mode
+	;;
+    up)
+	switch_on "$external"
+	mirror_mode
+	;;
+    down)
+	switch_off "$external"
+	;;
+    reset)
+	reset_setup
+	;;
+    status)
+	show_current_setup
+	;;
+esac
+
+unset primary external external_scale ext resolution 

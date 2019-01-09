@@ -70,7 +70,7 @@ workspaceNames =
 myWorkspaces = workspaceNames
 
 myStartupHook = do
-    spawn "xmon up"
+    spawn "xdisplay mirror"
 
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey  myConfig
 
