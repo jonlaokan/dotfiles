@@ -11,8 +11,7 @@ fi
 # Updates the dotfiles
 git --git-dir=.git -C "${DOTFILES}" pull
 
-stow bash
-stow fish
+stow rccom
 stow git
 stow config
 stow xorg
