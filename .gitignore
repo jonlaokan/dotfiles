@@ -1,1 +1,5 @@
+# Xmonad files
+xmonad/*
+!xmonad/.xmonad/xmonad.hs
+
 *.log
