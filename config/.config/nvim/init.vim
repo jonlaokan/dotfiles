@@ -1,5 +1,5 @@
 call plug#begin('~/.config/nvim/autoload')
-Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -11,14 +11,14 @@ Plug 'rakr/vim-two-firewatch'
 call plug#end()
 
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'darcula',
       \ }
 filetype plugin indent on
 syntax enable
 set termguicolors
 set background=dark
 let g:gruvbox_italic=1
-colo gruvbox
+colo dracula
 set foldmethod=syntax
 set foldnestmax=2
 set fml=5
