@@ -80,10 +80,19 @@ show_current_setup() {
     fi
 }
 
+mirror_if_connected() {
+    if $(xrandr | grep $external | grep "disconnected"); then
+	xrandr --output "$primary" --scale "$external_scale"
+	log "mono-display"
+    else
+	mirror_mode
+    fi
+}
+
 
 case $1 in
     mirror)
-	mirror_mode
+	mirror_if_connected
 	;;
     extend)
 	extend_mode
