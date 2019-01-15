@@ -8,7 +8,7 @@ bin="$HOME/.dotfiles/bin"
 
 # X-files
 userResources="$HOME/.Xresources"
-DISPLAY_SETUP="$HOME/.display_setup"
+export DISPLAY_SETUP="$HOME/.display_setup"
 
 # Env variables
 #
