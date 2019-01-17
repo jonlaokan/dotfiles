@@ -13,5 +13,6 @@ config/.config/*
 !config/.config/rofi
 !config/.config/sxhkd
 !config/.config/termite
+!config/.config/xmobar
 
 *.log
