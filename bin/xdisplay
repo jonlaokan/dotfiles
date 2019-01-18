@@ -6,6 +6,8 @@ if (( $# < 1 )); then
 fi
 
 current_state=$(xrandr)
+def_width=1920
+def_height=1080
 
 check_outputs_names() {
     primary="$1"
@@ -37,11 +39,16 @@ compute_scale() {
     p_width="${resolution[0]}"
     p_height="${resolution[1]}"
 
-    get_output_res "$external"
-    e_width="${resolution[0]}"
-    e_height="${resolution[1]}"
-
+    if is_external_connected; then
+	get_output_res "$external"
+	e_width="${resolution[0]}"
+	e_height="${resolution[1]}"
+    else
+	e_width=$def_width
+	e_height=$def_height
+    fi
     external_scale=$(echo "scale=4; $e_width / $p_width" | bc)x$(echo "scale=4; $e_height / $p_height" | bc)
+    echo $external_scale $e_width $e_height
 }
 
 mirror_mode() {
@@ -57,6 +64,14 @@ extend_mode(){
     reset_setup
     compute_scale
     xrandr --output "$primary" --auto --scale "$external_scale" --output "$external" --auto --right-of "$primary"
+    ~/.fehbg
+}
+
+mono_display() {
+    log "mono-display"
+    reset_setup
+    compute_scale
+    xrandr --output "$primary" --scale "$external_scale"
     ~/.fehbg
 }
 
@@ -80,10 +95,17 @@ show_current_setup() {
     fi
 }
 
+is_external_connected() {
+    if xrandr | grep $external | grep -q "disconnected"; then
+	return 1
+    else
+	return 0
+    fi
+}
+
 mirror_if_connected() {
-    if $(xrandr | grep $external | grep "disconnected"); then
-	xrandr --output "$primary" --scale "$external_scale"
-	log "mono-display"
+    if is_external_connected; then
+	mono_display
     else
 	mirror_mode
     fi
