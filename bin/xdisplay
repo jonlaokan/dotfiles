@@ -31,7 +31,7 @@ fi
 reset_setup() {
     local default
     default=1x1
-    xrandr --output "$primary" --scale "$default" --output "$external" --scale "$default"
+    xrandr --output "$primary" --scale "$default" --output "$external" --auto --scale "$default"
 }
 
 compute_scale() {
