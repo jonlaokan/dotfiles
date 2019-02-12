@@ -43,8 +43,8 @@ myConfig = defaultConfig
                 "ponymix toggle" )
                 -- Brightness controls
                 , ((0,xF86XK_MonBrightnessUp), spawn
-                "xbacklight +20")
-                , ((0,xF86XK_MonBrightnessDown), spawn "xbacklight -20")
+                "light -A 20")
+                , ((0,xF86XK_MonBrightnessDown), spawn "light -U 20")
                 -- Keyboard brightness
                 , ((0,xF86XK_KbdBrightnessUp), spawn "kbdlight up 20")
                 , ((0,xF86XK_KbdBrightnessDown), spawn "kbdlight down 20")
