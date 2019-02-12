@@ -6,7 +6,7 @@ xmonad/*
 config/.config/*
 !config/.config/bspwm
 !config/.config/dunst
-!config/.config/fish/config.fish
+!config/.config/fish
 !config/.config/qutebrowser/config.py
 !config/.config/ranger
 !config/.config/nvim/init.vim
