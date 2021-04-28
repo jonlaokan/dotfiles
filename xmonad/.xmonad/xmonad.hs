@@ -10,7 +10,7 @@ import XMonad.Util.Run
 
 import qualified Data.Map as M
 
-myTerminal    = "termite"
+myTerminal    = "kitty"
 myBorderWidth = 3
 myFocusedBorderColor = "#CAA9FA"
 myNormalBorderColor = "#BFBFBF"
@@ -33,7 +33,7 @@ myConfig = defaultConfig
         }
         where 
             mykeys (XConfig {modMask = modm}) = M.fromList $
-                [ ((modm, xK_r), spawn "rofi-launch")
+                [ ((modm, xK_r), spawn "dmenu_run")
                 -- Volume controls
                 , ((0,xF86XK_AudioRaiseVolume), spawn
                 "ponymix increase 20" )
@@ -70,7 +70,7 @@ workspaceNames =
 myWorkspaces = workspaceNames
 
 myStartupHook = do
-    spawn "xdisplay mirror"
+    spawn "~/.dotfiles/bin/xdisplay stacked"
 
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey  myConfig
 

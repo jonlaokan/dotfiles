@@ -13,7 +13,7 @@ alias -- -='cd -'
 alias cd.='cd $(readlink -f .)' # Follow the link to real dir
 
 # Vim
-alias vim='nvim'
+#alias vim='nvim'
 
 # Xclip
 alias xp='xclip -o -selection clipboard'

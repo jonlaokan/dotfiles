@@ -6,8 +6,8 @@ if (( $# < 1 )); then
 fi
 
 current_state=$(xrandr)
-def_width=1920
-def_height=1080
+def_width=3440
+def_height=1440
 
 check_outputs_names() {
     primary="$1"
@@ -22,34 +22,36 @@ get_output_res() {
     resolution[1]="$(echo "$temp" | cut -d x -f 2)"
 }
 
-if echo "$current_state" | grep eDP1 > /dev/null; then 
-    check_outputs_names "eDP1" "HDMI2"
-else
-    check_outputs_names "eDP-1" "HDMI-2"
-fi
+#if echo "$current_state" | grep eDP1 > /dev/null; then 
+#    check_outputs_names "eDP1" "HDMI2"
+#else
+#    check_outputs_names "eDP-1" "HDMI-2"
+#fi
+
+check_outputs_names "DP-0" "DVI-D-0"
 
 reset_setup() {
     local default
     default=1x1
-    xrandr --output "$primary" --scale "$default" --output "$external" --auto --scale "$default"
+    xrandr --output "$primary" --auto --scale "$default" --output "$external" --auto --scale "$default"
 }
 
-compute_scale() {
-    get_output_res "$primary"
-    p_width="${resolution[0]}"
-    p_height="${resolution[1]}"
-
-    if is_external_connected; then
-	get_output_res "$external"
-	e_width="${resolution[0]}"
-	e_height="${resolution[1]}"
-    else
-	e_width=$def_width
-	e_height=$def_height
-    fi
-    external_scale=$(echo "scale=4; $e_width / $p_width" | bc)x$(echo "scale=4; $e_height / $p_height" | bc)
-    echo $external_scale $e_width $e_height
-}
+#compute_scale() {
+#    get_output_res "$primary"
+#    p_width="${resolution[0]}"
+#    p_height="${resolution[1]}"
+#
+#    if is_external_connected; then
+#	get_output_res "$external"
+#	e_width="${resolution[0]}"
+#	e_height="${resolution[1]}"
+#    else
+#	e_width=$def_width
+#	e_height=$def_height
+#    fi
+#    external_scale=$(echo "scale=4; $e_width / $p_width" | bc)x$(echo "scale=4; $e_height / $p_height" | bc)
+#    echo $external_scale $e_width $e_height
+#}
 
 mirror_mode() {
     log "mirror"
@@ -64,6 +66,13 @@ extend_mode(){
     reset_setup
     compute_scale
     xrandr --output "$primary" --auto --scale "$external_scale" --output "$external" --auto --right-of "$primary"
+    ~/.fehbg
+}
+
+stacked_mode() {
+    log "stacked"
+    reset_setup
+    xrandr --output "$primary" --output "$external" --auto --panning 0x0 --above "$primary"
     ~/.fehbg
 }
 
@@ -125,6 +134,9 @@ case $1 in
 	;;
     down)
 	switch_off "$external"
+	;;
+    stacked)
+	stacked_mode
 	;;
     reset)
 	reset_setup

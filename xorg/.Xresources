@@ -1,12 +1,75 @@
-#include "/home/jonlaokan/.dotfiles/colors/dracula"
+!#include "/home/jonlaokan/.Xresources.d/color"
 
 ! -----------------------------------------------------------------------------
 ! Xft Font Configuration
 ! -----------------------------------------------------------------------------
 
-Xft.dpi: 144
-Xft.rgba:rgb
-Xft.antialias:true
-Xft.hinting:false
-Xft.lcdfilter:lcddefault
+!-- Xft.dpi: 144
+!-- Xft.rgba:rgb
+!-- Xft.antialias:true
+!-- Xft.hinting:false
+!-- Xft.lcdfilter:lcddefault
+
+! -----------------------------------------------------------------------------
+! Urxvt Configuration
+! -----------------------------------------------------------------------------
+
+URxvt.font:                xft:Hasklig-Regular:size=14:antialias=true:hinting=true
+URxvt.boldFont:            xft:Hasklig-Bold:size=14
+URxvt.letterSpace: 	   0
+URxvt.internalBorder:      25
+URxvt.externalBorder:      0
+URxvt.scrollBar:           false
+URxvt*fading:              30
+Urxvt*depth: 32
+Urxvt*background: rgba:0000/0000/0200/c800
+URxvt.perl-ext-common:     matcher,resize-font
+URxvt.keysym.F11:          perl:fullscreen:switch
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger:  C-Up
+URxvt.resize-font.reset: C-equal
+URxvt.resize-font.show: C-question
+URxvt.url-launcher:        /usr/bin/firefox
+URxvt.keysym.M-Delete:     perl:matcher:list
+URxvt.colorUL: #7780a1
+
+! -----------------------------------------------------------------------------
+! Colorscheme
+! -----------------------------------------------------------------------------
+! special
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
+
+! black
+*.color0:       #1d1f21
+*.color8:       #969896
+
+! red
+*.color1:       #cc6666
+*.color9:       #cc6666
+
+! green
+*.color2:       #b5bd68
+*.color10:      #b5bd68
+
+! yellow
+*.color3:       #f0c674
+*.color11:      #f0c674
+
+! blue
+*.color4:       #81a2be
+*.color12:      #81a2be
+
+! magenta
+*.color5:       #b294bb
+*.color13:      #b294bb
+
+! cyan
+*.color6:       #8abeb7
+*.color14:      #8abeb7
+
+! white
+*.color7:       #c5c8c6
+*.color15:      #ffffff
 
